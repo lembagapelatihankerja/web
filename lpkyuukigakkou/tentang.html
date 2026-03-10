@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami - LPK Yuuki Gakkou</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <style>
+      :root {
+        --bg: #fdfcfa;
+        --fg: #1a1a1a;
+        --muted: #6b6b6b;
+        --accent: #9b2c2c;
+        --accent-light: #c53030;
+        --card: #ffffff;
+        --border: #e8e6e3;
+        --cream: #f5f3ef;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: var(--bg);
+        color: var(--fg);
+      }
+
+      .pattern-bg {
+        background-image: linear-gradient(rgba(155, 44, 44, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(155, 44, 44, 0.02) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      /* Navbar */
+      .navbar {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: transparent;
+        backdrop-filter: blur(0px);
+      }
+
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.98) !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      .navbar:not(.scrolled) .navbar-brand h1,
+      .navbar:not(.scrolled) .navbar-brand p {
+        color: white !important;
+      }
+
+      .navbar-brand h1 {
+        font-family: system-ui;
+        font-weight: 900;
+        font-size: 28px;
+        margin-bottom: 0;
+        color: var(--fg);
+        transition: color 0.3s ease;
+      }
+
+      .navbar-brand .small {
+        color: var(--muted);
+        transition: color 0.3s ease;
+      }
+
+      .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+        color: var(--muted) !important;
+        font-weight: 500;
+        padding: 0.5rem 1rem !important;
+        font-size: 14px;
+      }
+
+      .navbar:not(.scrolled) .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+      }
+
+      .nav-link:hover {
+        color: var(--fg) !important;
+      }
+
+      .navbar:not(.scrolled) .nav-link:hover {
+        color: white !important;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0.5rem;
+        right: 0.5rem;
+        height: 2px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        transform: scaleX(1);
+      }
+
+      .nav-link.active {
+        color: var(--accent) !important;
+        font-weight: 600;
+      }
+
+      .navbar:not(.scrolled) .nav-link.active {
+        color: white !important;
+      }
+
+      .navbar:not(.scrolled) .nav-link.active::after {
+        background: white;
+      }
+
+      /* Hero section */
+      .hero-section {
+        height: 60vh;
+        /* min-height: 550px; */
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+        padding-top: 0;
+      }
+
+      .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(155, 44, 44, 0.7) 100%);
+      }
+
+      .hero-content {
+        position: relative;
+        top: 45px;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        max-width: 900px;
+        padding: 2rem;
+      }
+
+      .hero-content .badge {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(5px);
+        border-radius: 100px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin-bottom: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .hero-content h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Section styling */
+      .section-padding {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--fg);
+        margin-bottom: 1rem;
+      }
+
+      .accent-line {
+        width: 60px;
+        height: 3px;
+        background: var(--accent);
+        margin: 1.5rem 0;
+      }
+
+      .accent-line-center {
+        width: 60px;
+        height: 3px;
+        background: var(--accent);
+        margin: 1.5rem auto;
+      }
+
+      .text-accent {
+        color: var(--accent) !important;
+      }
+
+      .bg-cream {
+        background-color: var(--cream) !important;
+      }
+
+      .bg-card {
+        background-color: var(--card) !important;
+      }
+
+      .border-border {
+        border-color: var(--border) !important;
+      }
+
+      /* Cards */
+      .story-card,
+      .team-card,
+      .facility-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 1.5rem !important;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .story-card:hover,
+      .team-card:hover,
+      .facility-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.08) !important;
+        border-color: transparent;
+      }
+
+      .team-card .img-wrapper {
+        overflow: hidden;
+        height: 250px;
+      }
+
+      .team-card img {
+        transition: transform 0.6s ease;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .team-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .org-card-wide {
+        display: flex;
+        gap: 1.5rem;
+        align-items: stretch;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 1.25rem;
+        padding: 1.25rem;
+        height: 100%;
+        transition: all 0.35s ease;
+      }
+
+      .org-card-wide:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
+        border-color: transparent;
+      }
+
+      .org-photo {
+        width: 230px;
+        min-width: 230px;
+        height: 230px;
+        border-radius: 1rem;
+        object-fit: cover;
+        border: 1px solid var(--border);
+      }
+
+      .org-body {
+        flex: 1;
+      }
+
+      .org-role {
+        display: inline-block;
+        background: rgba(155, 44, 44, 0.1);
+        color: var(--accent);
+        border-radius: 999px;
+        padding: 0.2rem 0.7rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        margin-bottom: 0.65rem;
+      }
+
+      .cert-preview-btn {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 0.9rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      .cert-preview-img {
+        width: 10%;
+        height: 120px;
+        object-fit: cover;
+        border: 1px solid var(--border);
+      }
+
+      .cert-preview-label {
+        display: inline-block;
+        margin-top: 0.45rem;
+        font-size: 0.78rem;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .cert-preview-scroll {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 5px;
+        scrollbar-width: thin;
+      }
+
+      .cert-preview-scroll img {
+        height: 80px;
+        width: 20%;
+        border-radius: 6px;
+        flex-shrink: 0;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .cert-preview-scroll img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Scrollbar styling */
+      .cert-preview-scroll::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .cert-preview-scroll::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+      }
+
+      .org-modal .modal-content {
+        background: #12121251;
+        border: 1px solid #00000000;
+      }
+
+      .modal.show .modal-dialog {
+        max-width: 95%;
+        height: 100%;
+      }
+
+      .org-modal .btn-close {
+        filter: invert(1) grayscale(1);
+      }
+
+      .org-modal .carousel-item img {
+        width: 100%;
+        max-height: 160vh;
+        object-fit: contain;
+      }
+
+      @media (max-width: 767.98px) {
+        .org-card-wide {
+          flex-direction: column;
+        }
+
+        .cert-preview-img {
+          width: 25%;
+          height: 100px;
+        }
+
+        .org-photo {
+          width: 100%;
+          min-width: 100%;
+          height: 250px;
+        }
+      }
+
+      .facility-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+      }
+
+      .facility-card i {
+        font-size: 2rem;
+        color: var(--accent);
+        margin-bottom: 1rem;
+      }
+
+      .facility-card h4 {
+        color: white;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .facility-card p {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+      }
+
+      /* Icon styling */
+      .program-icon-large {
+        width: 180px;
+        height: 180px;
+        background: rgba(155, 44, 44, 0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-size: 5rem;
+        margin: 0 auto;
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background: var(--accent) !important;
+        border-color: var(--accent) !important;
+        padding: 0.8rem 2.5rem;
+        border-radius: 100px !important;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(155, 44, 44, 0.15);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-light) !important;
+        border-color: var(--accent-light) !important;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(155, 44, 44, 0.25);
+      }
+
+      .btn-outline-accent {
+        border: 2px solid var(--accent) !important;
+        color: var(--accent) !important;
+        background: transparent !important;
+        padding: 0.8rem 2.5rem;
+        border-radius: 100px !important;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-accent:hover {
+        background: var(--accent) !important;
+        color: white !important;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(155, 44, 44, 0.1);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #1a1a1a !important;
+        color: #a0a0a0;
+      }
+
+      .footer-link {
+        color: #a0a0a0;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        font-size: 0.9rem;
+      }
+
+      .footer-link:hover {
+        color: var(--accent) !important;
+      }
+
+      /* Reveal animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-delay-1 {
+        transition-delay: 0.1s;
+      }
+
+      .reveal-delay-2 {
+        transition-delay: 0.2s;
+      }
+
+      .reveal-delay-3 {
+        transition-delay: 0.3s;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* Mobile menu */
+      @media (max-width: 991.98px) {
+        .navbar-collapse {
+          background: white;
+          padding: 1rem;
+          border-radius: 1rem;
+          margin-top: 0.75rem;
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar:not(.scrolled) .navbar-collapse {
+          background: rgba(255, 255, 255, 0.98);
+        }
+
+        .navbar:not(.scrolled) .nav-link {
+          color: var(--muted) !important;
+        }
+
+        .navbar:not(.scrolled) .nav-link.active {
+          color: var(--accent) !important;
+        }
+
+        .navbar:not(.scrolled) .nav-link.active::after {
+          background: var(--accent);
+        }
+      }
+
+      /* Mobile overflow fixes */
+      @media (max-width: 768.98px) {
+        body {
+          overflow-x: hidden;
+        }
+
+        .navbar {
+          padding-left: 0.5rem !important;
+          padding-right: 0.5rem !important;
+        }
+
+        .navbar .container-fluid {
+          padding-left: 0.5rem !important;
+          padding-right: 0.5rem !important;
+          max-width: 100%;
+          overflow: hidden;
+        }
+
+        .navbar-brand {
+          min-width: 0;
+          max-width: calc(100% - 56px);
+        }
+
+        .navbar-brand .rounded-circle {
+          width: 56px !important;
+          height: 56px !important;
+          flex: 0 0 56px;
+        }
+
+        .navbar-brand .rounded-circle img {
+          width: 56px !important;
+          height: 56px !important;
+          object-fit: contain;
+        }
+
+        .navbar-brand h1 {
+          font-size: 14px !important;
+          line-height: 1.15;
+        }
+
+        .navbar-collapse {
+          max-width: 100%;
+          overflow: hidden;
+        }
+
+        .navbar-collapse .btn {
+          width: 100%;
+          margin-top: 0.5rem;
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+        }
+
+        .navbar-nav .nav-link {
+          overflow-wrap: anywhere;
+          word-break: break-word;
+        }
+
+        .footer .container {
+          overflow: hidden;
+        }
+
+        .footer .d-flex.align-items-center.gap-3 {
+          flex-wrap: wrap;
+        }
+
+        .footer .bg-white.rounded-circle {
+          width: 56px !important;
+          height: 56px !important;
+          flex: 0 0 56px;
+        }
+
+        .footer .bg-white.rounded-circle img {
+          width: 56px !important;
+          height: 56px !important;
+        }
+
+        .footer h3 {
+          font-size: 1.05rem !important;
+          line-height: 1.25;
+        }
+
+        .footer li.d-flex {
+          align-items: flex-start;
+          gap: 0.5rem !important;
+        }
+
+        .footer li span,
+        .footer li a {
+          overflow-wrap: anywhere;
+          word-break: break-word;
+        }
+      }
+    </style>
+  </head>
+  <body class="pattern-bg">
+    <!-- Navbar (sama persis dengan halaman program) -->
+    <nav class="navbar navbar-expand-lg fixed-top px-3" id="mainNav">
+      <div class="container-fluid px-lg-4">
+        <a href="index.html" class="navbar-brand d-flex align-items-center gap-2">
+          <div class="rounded-circle bg-white d-flex align-items-center justify-content-center" style="width: 80px; height: 80px">
+            <img src="logo.png" alt="logo" style="width: 80px" />
+          </div>
+          <div class="d-none d-sm-block">
+            <h1 class="mb-0" style="font-size: 18px">Lembaga Pelatihan Kerja</h1>
+            <h1 class="mb-0">YUUKI GAKKOU</h1>
+          </div>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="beranda.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="legalitas.html">Legalitas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dokumentasi.html">Galeri</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="testimoni.html">Testimoni</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link active" href="tentang.html">Tentang Kami</a>
+            </li>
+          </ul>
+          <a href="pendaftaran.html" class="btn btn-primary rounded-pill px-4 py-2 fw-semibold">Daftar Sekarang</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section (sama dengan program) -->
+    <section class="hero-section">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&q=80" alt="Tentang Kami" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <span class="badge">TENTANG KAMI</span>
+        <h1>Membangun Jembatan Menuju Karier Global</h1>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="section-padding px-3 px-lg-4">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 reveal d-flex justify-content-center">
+            <div class="program-icon-large mx-auto mx-lg-0">
+              <i class="bi bi-journal-bookmark-fill"></i>
+            </div>
+          </div>
+          <div class="col-lg-6 reveal reveal-delay-1">
+            <span class="text-accent text-uppercase fw-semibold tracking-wider small">Tentang Kami</span>
+            <h2 class="section-title">LPK Yuuki Gakkou</h2>
+            <div class="accent-line"></div>
+            <p class="text-muted lead fs-6 mb-4">
+              Sebagai lembaga bimbingan belajar yang bergerak di bidang kursus Bahasa Jepang, LPK Yuuki Gakkou menawarkan program pembelajaran Bahasa Jepang bagi siswa dan siswi, khususnya dalam
+              rangka mempersiapkan peserta menghadapi pra-seleksi pemagangan Jepang, baik melalui jalur swasta maupun pemerintah.
+            </p>
+            <p class="text-muted mb-4">
+              Didirikan dengan komitmen untuk mencetak tenaga kerja berkualitas, kami akan membantu siswa-siswi meraih kesempatan bekerja di Jepang. Kurikulum kami dirancang khusus untuk memenuhi
+              kebutuhan industri Jepang dengan pengajar yang berpengalaman di bidangnya.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Mission Section -->
+    <section class="section-padding bg-cream px-3 px-lg-4">
+      <div class="container">
+        <div class="text-center reveal mb-5">
+          <span class="text-accent text-uppercase fw-semibold tracking-wider small">Visi & Misi</span>
+          <h2 class="section-title">Arah dan Tujuan Kami</h2>
+          <div class="accent-line-center"></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 reveal">
+            <div class="story-card p-5">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="bg-accent bg-opacity-10 rounded-3 d-inline-flex p-3">
+                  <i class="bi bi-eye fs-1 text-accent"></i>
+                </div>
+                <h3 class="font-display fs-3 fw-semibold" style="font-family: &quot;Cormorant Garamond&quot;, serif; margin-bottom: 0">Visi</h3>
+              </div>
+              <p class="text-muted">Menjadi lembaga pelatihan yang dapat mencetak generasi Indonesia siap kerja berkarier di Jepang dengan kualitas pelatihan unggul dan pendampingan menyeluruh.</p>
+            </div>
+          </div>
+          <div class="col-md-6 reveal reveal-delay-1">
+            <div class="story-card p-5">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="bg-accent bg-opacity-10 rounded-3 d-inline-flex p-3">
+                  <i class="bi bi-check2-circle fs-1 text-accent"></i>
+                </div>
+                <h3 class="font-display fs-3 fw-semibold" style="font-family: &quot;Cormorant Garamond&quot;, serif; margin-bottom: 0">Misi</h3>
+              </div>
+              <ul class="list-unstyled text-muted">
+                <li class="d-flex gap-3 mb-3">
+                  <i class="bi bi-check-lg text-accent fs-5"></i>
+                  Meningkatkan kemampuan Bahasa dan budaya Jepang secara komprehensif
+                </li>
+                <li class="d-flex gap-3 mb-3">
+                  <i class="bi bi-check-lg text-accent fs-5"></i>
+                  Mempersiapkan peserta dengan keterampilan professional
+                </li>
+                <li class="d-flex gap-3 mb-3">
+                  <i class="bi bi-check-lg text-accent fs-5"></i>
+                  Menjalin kerjasama dengan perusahaan mitra di Jepang
+                </li>
+                <li class="d-flex gap-3">
+                  <i class="bi bi-check-lg text-accent fs-5"></i>
+                  Memberikan pendampingan hingga proses penempatan kerja
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding px-3 px-lg-4">
+      <div class="container">
+        <div class="text-center reveal mb-5">
+          <span class="text-accent text-uppercase fw-semibold tracking-wider small">Struktur Organisasi</span>
+          <h2 class="section-title">Tim Inti LPK Yuuki Gakkou</h2>
+          <div class="accent-line-center"></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 reveal">
+            <div class="org-card-wide">
+              <img src="img/imam_saefulloh.jpg" alt="Imam Saefulloh" class="org-photo" />
+              <div class="org-body">
+                <span class="org-role">Pendiri</span>
+                <h4 class="font-display fs-3 fw-semibold mb-2" style="font-family: &quot;Cormorant Garamond&quot;, serif">IMAM SAEFULLOH</h4>
+                <p class="text-muted mb-3">Pendiri lembaga dan pengarah utama pengembangan program pelatihan.</p>
+                <li class="d-flex gap-3 mb-2">
+                  <i class="bi bi-check-lg text-accent fs-5"></i>
+                  EX Magang Tahun 2013-2016.
+                </li>
+                <li class="d-flex gap-3 mb-2">
+                  <i class="bi bi-check-lg text-accent fs-5"></i>
+                  Ex Tokutei Ginou 1 Tahun 2020-2025.
+                </li>
+                <button
+                  class="cert-preview-btn"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#orgCertModal"
+                  data-cert-title="Sertifikat IMAM SAEFULLOH"
+                  data-cert-images="img/certificate_imam_1.jpg|img/certificate_imam_2.jpg|img/certificate_imam_3.jpg|img/certificate_imam_n3.jpg"
+                >
+                  <div class="cert-preview-scroll">
+                    <img src="img/certificate_imam_1.jpg" alt="Sertifikat Imam Saefulloh" class="cert-preview-img" />
+                    <img src="img/certificate_imam_2.jpg" alt="Sertifikat Imam Saefulloh" class="cert-preview-img" />
+                    <img src="img/certificate_imam_3.jpg" alt="Sertifikat Imam Saefulloh" class="cert-preview-img" />
+                    <img src="img/certificate_imam_n3.jpg" alt="Sertifikat Imam Saefulloh" class="cert-preview-img" />
+                  </div>
+                </button>
+                <span class="cert-preview-label">Lihat Sertifikat</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 reveal">
+            <div class="org-card-wide">
+              <img src="img/colin.png" alt="Imam Saefulloh" class="org-photo" />
+              <div class="org-body">
+                <span class="org-role">Manager</span>
+                <h4 class="font-display fs-3 fw-semibold mb-2" style="font-family: &quot;Cormorant Garamond&quot;, serif">COLIN RAHMAT PRASETYANTO</h4>
+                <p class="text-muted mb-3">Bertanggung jawab atas manajemen program, target, dan kualitas layanan pelatihan.</p>
+                <li class="d-flex gap-3 mb-2">
+                  <i class="bi bi-check-lg text-accent fs-5"></i>
+                  EX Magang Dan Ex Tokutei Ginou 1 Tahun 2019-2025.
+                </li>
+                <button
+                  class="cert-preview-btn"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#orgCertModal"
+                  data-cert-title="Sertifikat COLIN RAHMAT PRASETYANTO"
+                  data-cert-images="img/certificate_colin_1.jpeg|img/certificate_colin_2.jpeg|img/certificate_colin_3.jpeg|img/certificate_colin_4.jpeg"
+                >
+                  <div class="cert-preview-scroll">
+                    <img src="img/certificate_colin_1.jpeg" alt="Sertifikat Colin Rahmat Prasetyanto" class="cert-preview-img" />
+                    <img src="img/certificate_colin_2.jpeg" alt="Sertifikat Colin Rahmat Prasetyanto" class="cert-preview-img" />
+                    <img src="img/certificate_colin_3.jpeg" alt="Sertifikat Colin Rahmat Prasetyanto" class="cert-preview-img" />
+                    <img src="img/certificate_colin_4.jpeg" alt="Sertifikat Colin Rahmat Prasetyanto" class="cert-preview-img" />
+                  </div>
+                </button>
+                <span class="cert-preview-label">Lihat Sertifikat</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 reveal reveal-delay-3">
+            <div class="org-card-wide">
+              <img src="img/default.jpg" alt="Tim Pengajar" class="org-photo" />
+              <div class="org-body">
+                <span class="org-role">Pengajar</span>
+                <h4 class="font-display fs-3 fw-semibold mb-2" style="font-family: &quot;Cormorant Garamond&quot;, serif">TIM PENGAJAR</h4>
+                <p class="text-muted mb-0">Instruktur Bahasa Jepang, budaya kerja, dan persiapan skill untuk penempatan.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 reveal reveal-delay-1">
+            <div class="org-card-wide">
+              <img
+                src="img/default.jpg"
+                alt="Fitri"
+                class="org-photo"
+                onerror="
+                  this.onerror = null;
+                  this.style.display = 'none';
+                  this.parentElement.classList.add('fallback-active');
+                "
+              />
+              <div class="org-body">
+                <span class="org-role">Sekretaris</span>
+                <h4 class="font-display fs-3 fw-semibold mb-2" style="font-family: &quot;Cormorant Garamond&quot;, serif">FITRI</h4>
+                <p class="text-muted mb-0">Mengelola administrasi, dokumentasi, dan koordinasi operasional harian lembaga.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal fade org-modal" id="orgCertModal" tabindex="-1" aria-labelledby="orgCertModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title text-white" id="orgCertModalLabel">Sertifikat</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body pt-0">
+            <div id="orgCertCarousel" class="carousel slide" data-bs-ride="false">
+              <div class="carousel-indicators" id="orgCertIndicators"></div>
+              <div class="carousel-inner" id="orgCertInner"></div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#orgCertCarousel" data-bs-slide="prev" id="orgPrevControl">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#orgCertCarousel" data-bs-slide="next" id="orgNextControl">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Facilities Section (dengan background gelap) -->
+    <section class="section-padding px-3 px-lg-4" style="background-color: #1a1a1a">
+      <div class="container">
+        <div class="text-center reveal mb-5">
+          <span class="text-accent text-uppercase fw-semibold tracking-wider small">Fasilitas</span>
+          <h2 class="section-title text-white">Fasilitas Lengkap</h2>
+          <div class="accent-line-center"></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 reveal">
+            <div class="facility-card">
+              <i class="bi bi-building"></i>
+              <h4>Ruang Kelas</h4>
+              <p>Kapasitas 20 siswa per kelas</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal reveal-delay-1">
+            <div class="facility-card">
+              <i class="bi bi-house-door"></i>
+              <h4>Asrama Peserta</h4>
+              <p>Asrama nyaman dengan fasilitas lengkap</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 reveal reveal-delay-2">
+            <div class="facility-card">
+              <i class="bi bi-cup-hot"></i>
+              <h4>Fasilitas Peserta Asrama</h4>
+              <p>Dapur, Gerasi, WC</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- <section class="section-padding bg-cream px-3 px-lg-4">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-8 reveal">
+            <h2 class="section-title">Bergabung Bersama Kami</h2>
+            <p class="text-muted mb-5">
+              Ratusan alumni telah memulai karier impian mereka di Jepang.
+              Giliran Anda selanjutnya.
+            </p>
+            <a href="pendaftaran.html" class="btn btn-primary"
+              >Daftar Sekarang</a
+            >
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Footer (sama persis) -->
+    <!-- Footer -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row g-5 mb-4">
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-white rounded-circle d-flex align-items-center justify-content-center" style="width: 70px; height: 70px">
+                <img src="logo.png" alt="" style="width: 70px; height: 70px" />
+              </div>
+              <h3 class="font-display fs-4 fw-semibold text-white mb-0" style="font-family: &quot;Cormorant Garamond&quot;, serif">LPK YUUKI GAKKOU</h3>
+            </div>
+            <p class="text-white-50 small">Mencetak tenaga kerja Indonesia siap berkarier profesional di Jepang dengan pelatihan berkualitas.</p>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <h4 class="text-white fs-6 fw-semibold mb-4">Menu</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="index.html" class="footer-link">Beranda</a>
+              </li>
+              <li class="mb-2">
+                <a href="legalitas.html" class="footer-link">Legalitas</a>
+              </li>
+              <li class="mb-2">
+                <a href="dokumentasi.html" class="footer-link">Galeri</a>
+              </li>
+              <!-- <li class="mb-2">
+                <a href="testimoni.html" class="footer-link">Testimoni</a>
+              </li> -->
+              <li class="mb-2">
+                <a href="tentang.html" class="footer-link">Tentang Kami</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 col-lg-2">
+            <h4 class="text-white fs-6 fw-semibold mb-4">Kontak</h4>
+            <ul class="list-unstyled">
+              <li class="d-flex gap-3 mb-3">
+                <i class="bi bi-geo-alt text-accent"></i>
+                <span class="small text-white-50">Jalan Raya Pangandaran Dusun Sindangherang Kecamatan Padaherang</span>
+              </li>
+              <li class="d-flex gap-3 mb-3">
+                <i class="bi bi-envelope text-accent"></i>
+                <a href="mailto:yuukigakkou@gmail.com" class="footer-link">yuukigakkou@gmail.com</a>
+              </li>
+              <li class="d-flex gap-3 mb-3">
+                <i class="bi bi-instagram text-accent"></i>
+                <a href="https://www.instagram.com/lpkyuukigakkou" target="_blank" class="footer-link">lpkyuukigakkou</a>
+              </li>
+              <li class="d-flex gap-3 mb-3">
+                <i class="bi bi-telephone text-accent"></i>
+                <span class="small text-white-50">0821-1871-7338</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="border-white border-opacity-10 my-4" />
+        <p class="small text-white-50 text-center mb-0">&copy; 2026 LPK Yuuki Gakkou. Hak cipta dilindungi.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector(".navbar");
+
+        // Navbar scroll
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 20) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // Reveal observer
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -30px 0px" },
+        );
+
+        document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+        // close mobile menu on link click
+        const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+        const collapse = document.querySelector(".navbar-collapse");
+        navLinks.forEach((link) =>
+          link.addEventListener("click", () => {
+            if (collapse.classList.contains("show")) new bootstrap.Collapse(collapse).hide();
+          }),
+        );
+
+        const certTitle = document.getElementById("orgCertModalLabel");
+        const certIndicators = document.getElementById("orgCertIndicators");
+        const certInner = document.getElementById("orgCertInner");
+        const prevControl = document.getElementById("orgPrevControl");
+        const nextControl = document.getElementById("orgNextControl");
+        const certCarouselEl = document.getElementById("orgCertCarousel");
+
+        document.querySelectorAll(".cert-preview-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const title = btn.dataset.certTitle || "Sertifikat";
+            const images = (btn.dataset.certImages || "").split("|").filter(Boolean);
+
+            certTitle.textContent = title;
+            certIndicators.innerHTML = "";
+            certInner.innerHTML = "";
+
+            images.forEach((imgSrc, index) => {
+              const indicator = document.createElement("button");
+              indicator.type = "button";
+              indicator.setAttribute("data-bs-target", "#orgCertCarousel");
+              indicator.setAttribute("data-bs-slide-to", String(index));
+              indicator.setAttribute("aria-label", "Slide " + String(index + 1));
+              if (index === 0) {
+                indicator.classList.add("active");
+                indicator.setAttribute("aria-current", "true");
+              }
+              certIndicators.appendChild(indicator);
+
+              const item = document.createElement("div");
+              item.className = "carousel-item" + (index === 0 ? " active" : "");
+              item.innerHTML = '<img src="' + imgSrc + '" alt="' + title + " - " + String(index + 1) + '" class="d-block">';
+              certInner.appendChild(item);
+            });
+
+            const hasMultiple = images.length > 1;
+            certIndicators.style.display = hasMultiple ? "flex" : "none";
+            prevControl.style.display = hasMultiple ? "flex" : "none";
+            nextControl.style.display = hasMultiple ? "flex" : "none";
+
+            bootstrap.Carousel.getOrCreateInstance(certCarouselEl).to(0);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
